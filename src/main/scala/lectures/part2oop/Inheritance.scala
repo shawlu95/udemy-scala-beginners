@@ -1,12 +1,12 @@
 package lectures.part2oop
 
-object InheritanceAndTraits {
+object Inheritance {
   // prevent extension:
   // 1. make method final
   // 2. make class final
   // 3. "sealed" the class, can only be extended in current file
   //    Cat and Dog are the only subclasses allowed
-  
+
   // final class cannot be extended
   final class Plant {}
   sealed class Animal {
