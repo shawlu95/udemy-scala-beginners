@@ -34,6 +34,5 @@ object Exceptions {
 
     // rarely need customization in practice
     val exception = new MyException
-    throw exception
   }
 }
