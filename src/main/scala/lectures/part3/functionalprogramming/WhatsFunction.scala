@@ -7,7 +7,7 @@ object WhatsFunction {
 
   // doubler is an instance of a function-like class
   // and can be used like a function
-  val doubler: Int = new MyFunc[Int, Int] {
+  val doubler = new MyFunc[Int, Int] {
     override def apply(element: Int): Int = element * 2
   }
 
@@ -21,9 +21,15 @@ object WhatsFunction {
   val adder: ((Int, Int) => Int) = new Function2[Int, Int, Int] {
     override def apply(v1: Int, v2: Int): Int = v1 + v2
   }
+
+  def concat: (String, String) => String = new Function2[String, String, String] {
+    override def apply(v1: String, v2: String): String = v1 + v2
+  }
+
   def main(args: Array[String]): Unit = {
     println(doubler(100)) // returns 200
     println(string2Int("666"))
+    println(concat("Hello ", "Ava"))
   }
 }
 
