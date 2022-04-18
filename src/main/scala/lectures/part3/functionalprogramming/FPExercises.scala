@@ -93,9 +93,8 @@ object FPExercises {
     * = new Cons(2, new Cons(4, [3].map(n * 2)))
     * = new Cons(2, new Cons(4, new Cons(6, Empty.map(n * 2))))
     * = new Cons(2, new Cons(4, new Cons(6, Empty)))*/
-    println(listOfInt.map(new Function1[Int, Int] {
-      override def apply(elem: Int): Int = elem * 2
-    }))
+    println(listOfInt.map(elem => elem * 2))
+    println(listOfInt.map(_ * 2))
 
     /*
     * [1, 2, 3].filter(n % 2 == 0)
@@ -103,9 +102,8 @@ object FPExercises {
     * = new Cons(2, [3].filter(n % 2 == 0)
     * = new Cons(2, Empty.filter(n % 2)
     * = new Cons(2, Empty)*/
-    println(listOfInt.filter(new Function1[Int, Boolean] {
-      override def apply(elem: Int): Boolean = elem % 2 == 0
-    }))
+    println(listOfInt.filter(elem => elem % 2 == 0))
+    println(listOfInt.filter(_ % 2 == 0))
 
     /*
     * [1, 2] ++ [3, 4, 5]
@@ -120,8 +118,7 @@ object FPExercises {
     * = [1, 2] ++ [2].flatMap(n => [n, n + 1])
     * = [1, 2] ++ [2, 3] ++ Empty.flatMap(n => [n, n + 1])
     * = [1, 2, 2, 3] */
-    println(listOfInt.flatMap(new Function1[Int, MyList[Int]] {
-      override def apply(elem: Int): MyList[Int] = new Cons(elem, new Cons(elem + 1, Empty))
-    }).toString)
+    println(listOfInt.flatMap(elem => new Cons(elem, new Cons(elem + 1, Empty))).toString)
+    // underscore cannot be used multiple times in func (used twice in flatMap)
   }
 }

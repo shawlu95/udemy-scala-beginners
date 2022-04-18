@@ -29,12 +29,16 @@ object AnonymousFunction {
   val niceIncrementer1: Int => Int = (x: Int) => x + 1
   val niceIncrementer2: Int => Int = _ + 1
 
-  val niceAdder1: (Int, Int) => (a: Int, b: Int) => a + b
+  val niceAdder1: (Int, Int) => Int = (a, b) => a + b
   val niceAdder2: (Int, Int) => Int = _ + _
+
+  // anonymous high-order version
+  val anonyAdd = (x: Int) => (y: Int) => x + y
 
   def main(args: Array[String]): Unit = {
     // lambda function must be called with parentheses (lmao)
     println(sleep) // an instance of function
     println(sleep()) // execute the function and return 3
+    println(anonyAdd(10)(3))
   }
 }
