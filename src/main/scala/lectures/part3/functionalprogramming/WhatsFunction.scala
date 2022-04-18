@@ -26,10 +26,21 @@ object WhatsFunction {
     override def apply(v1: String, v2: String): String = v1 + v2
   }
 
+  // make a higher order function
+  val highAdder: Function1[Int, Function1[Int, Int]] = new Function[Int, Function[Int, Int]] {
+    override def apply(x: Int): Function[Int, Int] = new Function[Int, Int] {
+      override def apply(y: Int): Int = x + y
+    }
+  }
+
   def main(args: Array[String]): Unit = {
     println(doubler(100)) // returns 200
     println(string2Int("666"))
     println(concat("Hello ", "Ava"))
+
+    val adderHelper = highAdder(3) // pass in x
+    println(adderHelper(10)) // pass in y
+    println(highAdder(3)(10)) // curried function: chain two function call
   }
 }
 
