@@ -1,4 +1,4 @@
-package lectures.part2oop
+package lectures.part2.oop
 
 object OOExercises extends App {
   val author = new Writer("Charles", "Dickens", 1812)

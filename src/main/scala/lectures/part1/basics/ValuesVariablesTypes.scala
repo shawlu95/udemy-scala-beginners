@@ -1,4 +1,4 @@
-package lectures.part1basics
+package lectures.part1.basics
 
 object ValuesVariablesTypes extends App {
   // val cannot be reassigned (immutable)

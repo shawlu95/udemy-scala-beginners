@@ -1,4 +1,4 @@
-package lectures.part2oop
+package lectures.part2.oop
 
 object Generics {
   class MyList[+A] { // covariant collection

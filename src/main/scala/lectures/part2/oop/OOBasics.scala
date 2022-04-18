@@ -1,4 +1,4 @@
-package lectures.part2oop
+package lectures.part2.oop
 
 object OOBasics extends App {
   val person = new Person(name = "Shaw", age = 27)

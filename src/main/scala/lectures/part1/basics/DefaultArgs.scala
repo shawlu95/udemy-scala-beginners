@@ -1,4 +1,4 @@
-package lectures.part1basics
+package lectures.part1.basics
 
 object DefaultArgs extends App {
   def tailRecFactorial(n: Int, acc: Int = 1): Int =

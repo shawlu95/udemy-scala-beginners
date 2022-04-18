@@ -1,4 +1,4 @@
-package lectures.part2oop
+package lectures.part2.oop
 
 import math.Fractional.Implicits.infixFractionalOps
 import math.Integral.Implicits.infixIntegralOps

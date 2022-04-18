@@ -1,4 +1,4 @@
-package lectures.part2oop
+package lectures.part2.oop
 
 /* Works for class and trait, abstract and concrete */
 object AnonymousClass extends App {

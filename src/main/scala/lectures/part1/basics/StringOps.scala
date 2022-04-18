@@ -1,4 +1,4 @@
-package lectures.part1basics
+package lectures.part1.basics
 
 object StringOps extends App {
   val str: String = "Yo, I'm so fucking bored"
