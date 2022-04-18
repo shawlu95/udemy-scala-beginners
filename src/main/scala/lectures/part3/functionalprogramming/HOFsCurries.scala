@@ -17,6 +17,21 @@ object HOFsCurries {
     if (n <= 0) (x: Int) => x
     else (x: Int) => nTimesBetter(f, n - 1)(f(x))
 
+  def toCurry[A, B, C](f: (A, B) => C): (A => B => C) =
+    x => y => f(x, y)
+
+  def fromCurry[A, B, C](f: (A => B => C)): (A, B) => C =
+    (x, y) => f(x)(y)
+
+  def compose[A, B, T](f: A => B, g: T => A): T => B =
+    x => f(g(x))
+
+  def andThen[A, B, C](f: A => B, g: B => C): A => C =
+    x => g(f(x))
+
+  def superAdder: (Int => Int => Int) = toCurry(_ + _)
+  def add4 = superAdder(4)
+  def simpleAdder = fromCurry(superAdder)
 
   def main(args: Array[String]): Unit = {
     val plus1 = (x: Int) => x + 1
@@ -45,6 +60,23 @@ object HOFsCurries {
     val preciseFormatter: (Double => String) = curriedFormatter("%10.8f")
     println(standardFormatter(Math.PI))
     println(preciseFormatter(Math.PI))
+
+    println("curried adder")
+    println(add4(17))
+
+    println("fromCurry")
+    println(simpleAdder(4, 17))
+
+    val add2 = (x: Int) => x + 2
+    val times3 = (x: Int) => x * 3
+    val composed = compose(add2, times3)
+    val ordered = andThen(add2, times3)
+
+    println("composed: 4 * 3 + 2 = 14")
+    println(composed(4))
+
+    println("ordered: (4 + 2) * 3 = 18")
+    println(ordered(4))
   }
 
 }
