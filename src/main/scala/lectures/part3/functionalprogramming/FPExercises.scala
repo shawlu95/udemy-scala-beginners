@@ -182,5 +182,22 @@ object FPExercises {
     * = 6 */
     println("fold (one form of reduce)")
     println(listOfInt.fold(0)(_ + _))
+
+    // to support for comprehension
+    // must have exactly correct signature
+    // for map, flatMap, filter
+    val combinations = for {
+      n <- listOfInt
+      s <- listOfStrings
+    } yield n + "-" + s
+    println(combinations)
+
+    // evaluate to a value
+    println(for {
+      n <- listOfInt
+      s <- listOfStrings
+    } yield n + "-" + s)
+
+
   }
 }
