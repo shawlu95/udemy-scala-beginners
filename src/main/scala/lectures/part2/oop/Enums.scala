@@ -23,8 +23,12 @@ object Enums {
   // can have companion object
   object PermissionsWithBits {
     // factory method, return one constant of enum
-    def fromBits(bits: Int): PermissionsWithBits =
+    def fromBits(bits: Int): PermissionsWithBits = {
+      if (bits == 4) return PermissionsWithBits.READ
+      if (bits == 2) return PermissionsWithBits.WRITE
+      if (bits == 1) return PermissionsWithBits.EXECUTE
       PermissionsWithBits.NONE
+    }
   }
 
   def main(args: Array[String]): Unit = {
@@ -37,6 +41,7 @@ object Enums {
 
     // iterate all instances
     val all = PermissionsWithBits.values
+    println(PermissionsWithBits.fromBits(1))
 
     // create from string
     val bar: Permissions = Permissions.valueOf("WRITE")
